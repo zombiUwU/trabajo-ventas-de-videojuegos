@@ -1,0 +1,66 @@
+---
+title: 'Diferencias Significativas en las Ventas Regionales de Videojuegos: Un Análisis
+  de las Variables que Predicen el Éxito Comercial.'
+author: "Kleyber Montoya y Sebastian Valbuena"
+date: "2025-09-25"
+output:
+ html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    collapsed: true
+    smooth_scroll: true
+    theme: journal
+    highlight: kate
+    df_print: paged
+    code_folding: hide
+    css: style.css
+
+---
+
+```{r,  include = FALSE}
+
+library(readr)
+library(DT)
+library(dplyr)
+library(magrittr)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(tidyr)
+
+ruta_vdg_ventas.csv <- "C:\\Users\\Usuario\\Documents\\trabajo-ventas-de-videojuegos\\informe de rmarkdawn\\video_games_sales corregido.csv"
+read_csv(ruta_vdg_ventas.csv)
+BD <- read_csv(ruta_vdg_ventas.csv)
+```
+
+# **introducion**
+
+Introducion pitera
+
+```{r, echo = FALSE}
+datatable(BD, options = list(
+  pageLength = 5,
+  autoWidth = TRUE,
+  language = list(
+      search = "Buscar por nombre:",
+      lengthMenu = "Mostrar _MENU_ registros por página",
+      info = "Mostrando _START_ a _END_ de _TOTAL_ registros")
+),filter = 'top',
+  class = 'cell-border stripe')
+```
+
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#

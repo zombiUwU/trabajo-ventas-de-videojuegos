@@ -18,9 +18,8 @@ output:
 
 ---
 
-```{r,  include = FALSE}
+```{r}
 
-library(readr)
 library(DT)
 library(dplyr)
 library(magrittr)
@@ -28,15 +27,14 @@ library(knitr)
 library(kableExtra)
 library(ggplot2)
 library(tidyr)
+library(here)   
+library(readr)  
 
-ruta_vdg_ventas.csv <- "C:\\Users\\Usuario\\Documents\\trabajo-ventas-de-videojuegos\\informe de rmarkdawn\\video_games_sales corregido.csv"
-read_csv(ruta_vdg_ventas.csv)
-BD <- read_csv(ruta_vdg_ventas.csv)
+ruta_vdg_ventas <- here("data", "video_games_sales corregido.csv")
+
+BD <- read_csv(ruta_vdg_ventas)
 ```
 
-# **introducion**
-
-Introducion pitera
 
 ```{r, echo = FALSE}
 datatable(BD, options = list(

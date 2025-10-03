@@ -5,15 +5,6 @@ library(tidyr)
 library(here)
 library(gitcreds)
 library(usethis)
-use_git_config(
-  user.name = "sebastian", # Cambia esto por tu nombre
-  user.email = "valbuenasebas2209@gmail.com" # Usa el email asociado a tu cuenta de GitHub
-)
-create_github_token()
-
-## Configuramos token
-library(gitcreds)
-gitcreds_set()
 
 # ruta para que funcione en cualquier pc
 
@@ -68,39 +59,39 @@ consolas_de_lanzamiento <- data.frame(Consolas)
 
 consolas_de_lanzamiento %>% arrange(desc(Consolas))
 
-### agrupaciones de epocas en los continentes ###
+### agrupaciones de epocas en los continentes y filtre las  ventas que no llegan a unidades de millones ###
 
 # estados Unidos 
 
-Usa_milenio2 <- Ventas_USA %>% filter(Year < 2000)
+Usa_milenio2 <- Ventas_USA %>% filter(Year < 2000, NA_Sales >= 0.01)
 
-Usa_2000 <- Ventas_USA %>% filter(Year >= 2000, Year < 2010 )
+Usa_2000 <- Ventas_USA %>% filter(Year >= 2000, Year < 2010, NA_Sales >= 0.01 )
 
-Usa_2020 <-  Ventas_USA %>% filter(Year  >= 2010 )
+Usa_2020 <-  Ventas_USA %>% filter(Year  >= 2010, NA_Sales >= 0.01 )
 
 # Europa
 
-EU_milenio2 <- Ventas_EU %>% filter(Year < 2000)
+EU_milenio2 <- Ventas_EU %>% filter(Year < 2000, EU_Sales >= 0.01)
 
-EU_2000 <- Ventas_EU %>% filter(Year >= 2000, Year < 2010 )
+EU_2000 <- Ventas_EU %>% filter(Year >= 2000, Year < 2010, EU_Sales >= 0.01 )
 
-EU_2020 <-  Ventas_EU %>% filter(Year  >= 2010 )
+EU_2020 <-  Ventas_EU %>% filter(Year  >= 2010, EU_Sales >= 0.01 )
 
 # Japon
 
-JP_siglo20 <- Ventas_JP %>% filter(Year < 2000)
+JP_milenio2 <- Ventas_JP %>% filter(Year < 2000, JP_Sales >= 0.01)
 
-JP_2000 <- Ventas_JP %>% filter(Year >= 2000, Year < 2010 )
+JP_2000 <- Ventas_JP %>% filter(Year >= 2000, Year < 2010, JP_Sales >= 0.01 )
 
-JP_2020 <-  Ventas_JP %>% filter(Year  >= 2010 )
+JP_2020 <-  Ventas_JP %>% filter(Year  >= 2010, JP_Sales >= 0.01 )
 
 # Otros
 
-Other_siglo20 <- Ventas_Other %>% filter(Year < 2000)
+Other_milenio2 <- Ventas_Other %>% filter(Year < 2000, Other_Sales >= 0.01)
 
-Other_2000 <- Ventas_Other %>% filter(Year >= 2000, Year < 2010 )
+Other_2000 <- Ventas_Other %>% filter(Year >= 2000, Year < 2010, Other_Sales >= 0.01 )
 
-Other_2020 <-  Ventas_Other %>% filter(Year  >= 2010 )
+Other_2020 <-  Ventas_Other %>% filter(Year  >= 2010, Other_Sales >= 0.01 )
 
 ### creacion de columna generos ###
 
@@ -286,3 +277,75 @@ grafico_publishers_videojuegos <- ggplot(data = porcentaje_top15,
   scale_x_continuous(limits = c(0, max(porcentaje_top15$porcentajes) * 1.1))  
 
 print(grafico_publishers_videojuegos)
+
+
+### proceso de filtrado para la elaboracion del grafico de la distribucion de las ventas en el mundo ###
+
+
+prueba <-  Data.informacion %>% arrange(desc(NA_Sales)) %>% 
+  arrange(desc( EU_Sales)) %>%
+  arrange(desc(JP_Sales)) %>% 
+  arrange(desc(Other_Sales)) %>%
+  select(NA_Sales, EU_Sales, JP_Sales, Other_Sales)
+
+
+ganancia_total_EU <- sum(prueba$EU_Sales)  
+
+ganancia_total_NA <- sum(prueba$NA_Sales) 
+
+ganancia_total_JP <- sum(prueba$JP_Sales) 
+
+ganancia_total_Other <- sum(prueba$Other_Sales) 
+
+ganancia_total_global <- sum(prueba)
+
+
+ganancias_totales <- c(2434.13,
+                   1291.02,
+                   4392.95,
+                   797.75) 
+
+
+lugares <- c("EU",
+             "JP", 
+             "NA",
+             "Other") 
+
+
+Ganancias <- data.frame(ganancias_totales, lugares) 
+
+
+
+porcentaje_de_ganancias <-  Ganancias %>% 
+  group_by(ganancias_totales, lugares) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(porcentaje = ganancias_totales / sum(ganancias_totales) * 100)
+
+
+
+ggplot(data = porcentaje_de_ganancias,
+       aes(x = "", y = porcentaje, fill = lugares)) +
+  geom_bar(stat  = "identity") + 
+  geom_text(aes(label = paste0(round(porcentaje,),"%")),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y") +
+  theme_void() + 
+  labs(title = "distribucion", subtitle = "de las ventas en las regiones") +
+  theme(plot.title = element_text(size = 25, family = "serif")) +
+  theme(plot.subtitle = element_text(size = 15, family = "serif"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

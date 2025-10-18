@@ -336,6 +336,462 @@ ggplot(data = porcentaje_de_ganancias,
   theme(plot.subtitle = element_text(size = 15, family = "serif"))
 
 
+### filtrado final de la data ###
+
+## analisis por region de estadisticas_descriptivas #
+
+###estadisticas_descriptiva
+
+### estados unidos 
+
+### todos los datos 
+
+estadisticas_USA <- Ventas_USA %>% 
+  select(NA_Sales) %>%
+  filter(NA_Sales >= 0.01 )
+
+
+cuartiles <- quantile(estadisticas_USA$NA_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_USA$NA_Sales)  #promedio
+median(estadisticas_USA$NA_Sales) # mediana
+
+var(estadisticas_USA$NA_Sales)  # varianza
+sd(estadisticas_USA$NA_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_USA$NA_Sales) / mean(estadisticas_USA$NA_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+### los que llegan a unidades de millones 
+
+
+estadisticas_USA_max <- Ventas_USA %>% 
+  select(NA_Sales) %>%
+  filter(NA_Sales >= 1.00 )
+
+
+cuartiles <- quantile(estadisticas_USA_max$NA_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_USA_max$NA_Sales)  #promedio
+median(estadisticas_USA_max$NA_Sales) # mediana
+
+var(estadisticas_USA_max$NA_Sales)  # varianza
+sd(estadisticas_USA_max$NA_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_USA_max$NA_Sales) / mean(estadisticas_USA_max$NA_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+### los que no llegan a unidades de millon
+
+
+estadisticas_USA_min <- Ventas_USA %>% 
+  select(NA_Sales) %>%
+  filter(NA_Sales <= 0.99, NA_Sales >= 0.01)
+
+
+cuartiles <- quantile(estadisticas_USA_min$NA_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_USA_min$NA_Sales)  #promedio
+median(estadisticas_USA_min$NA_Sales) # mediana
+
+var(estadisticas_USA_min$NA_Sales)  # varianza
+sd(estadisticas_USA_min$NA_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_USA_min$NA_Sales) / mean(estadisticas_USA_min$NA_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+### europa 
+
+### total de datos
+
+estadisticas_EU <- Ventas_EU %>% 
+  select(EU_Sales) %>%
+  filter(EU_Sales >= 0.01 )
+
+
+cuartiles <- quantile(estadisticas_EU$EU_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_EU$EU_Sales)  #promedio
+median(estadisticas_EU$EU_Sales) # mediana
+
+var(estadisticas_EU$EU_Sales)  # varianza
+sd(estadisticas_EU$EU_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_EU$EU_Sales) / mean(estadisticas_EU$EU_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+
+### los que llegan a unidades de millones
+
+
+estadisticas_EU_max <- Ventas_EU %>% 
+  select(EU_Sales) %>%
+  filter(EU_Sales >= 1.00 )
+
+
+cuartiles <- quantile(estadisticas_EU_max$EU_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_EU_max$EU_Sales)  #promedio
+median(estadisticas_EU_max$EU_Sales) # mediana
+
+var(estadisticas_EU_max$EU_Sales)  # varianza
+sd(estadisticas_EU_max$EU_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_EU_max$EU_Sales) / mean(estadisticas_EU_max$EU_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+### los que no llegan a unidades de millones
+
+
+estadisticas_EU_min <- Ventas_EU %>% 
+  select(EU_Sales) %>%
+filter(EU_Sales <= 0.99, EU_Sales >= 00.1 )
+
+
+cuartiles <- quantile(estadisticas_EU_min$EU_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_EU_min$EU_Sales)  #promedio
+median(estadisticas_EU_min$EU_Sales) # mediana
+
+var(estadisticas_EU_min$EU_Sales)  # varianza
+sd(estadisticas_EU_min$EU_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_EU_min$EU_Sales) / mean(estadisticas_EU_min$EU_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+
+### Japon
+
+### total de datos
+
+estadisticas_JP <- Ventas_JP %>% 
+  select(JP_Sales) %>%
+  filter(JP_Sales >= 0.01 )
+
+
+cuartiles <- quantile(estadisticas_JP$JP_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_JP$JP_Sales)  #promedio
+median(estadisticas_JP$JP_Sales) # mediana
+
+var(estadisticas_JP$JP_Sales)  # varianza
+sd(estadisticas_JP$JP_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_JP$JP_Sales) / mean(estadisticas_JP$JP_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+
+### los que llegan a unidades de millones
+
+
+estadisticas_JP_max <- Ventas_JP %>% 
+  select(JP_Sales) %>%
+  filter(JP_Sales >= 1.00 )
+
+
+cuartiles <- quantile(estadisticas_JP_max$JP_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_JP_max$JP_Sales)  #promedio
+median(estadisticas_JP_max$JP_Sales) # mediana
+
+var(estadisticas_JP_max$JP_Sales)  # varianza
+sd(estadisticas_JP_max$JP_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_JP_max$JP_Sales) / mean(estadisticas_JP_max$JP_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+### los que no llegan a unidades de millones
+
+
+estadisticas_JP_min <- Ventas_JP %>% 
+  select(JP_Sales) %>%
+  filter(JP_Sales <= 0.99, JP_Sales >= 00.1 )
+
+
+cuartiles <- quantile(estadisticas_JP_min$JP_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_JP_min$JP_Sales)  #promedio
+median(estadisticas_JP_min$JP_Sales) # mediana
+
+var(estadisticas_JP_min$JP_Sales)  # varianza
+sd(estadisticas_JP_min$JP_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_JP_min$JP_Sales) / mean(estadisticas_JP_min$JP_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+
+
+### Other
+
+### total de datos
+
+estadisticas_Other <- Ventas_Other %>% 
+  select(Other_Sales) %>%
+  filter(Other_Sales >= 0.01 )
+
+
+cuartiles <- quantile(estadisticas_Other$Other_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_Other$Other_Sales)  #promedio
+median(estadisticas_Other$Other_Sales) # mediana
+
+var(estadisticas_Other$Other_Sales)  # varianza
+sd(estadisticas_Other$Other_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_Other$Other_Sales) / mean(estadisticas_Other$Other_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+
+### los que llegan a unidades de millones
+
+
+estadisticas_Other_max <- Ventas_Other %>% 
+  select(Other_Sales) %>%
+  filter(Other_Sales >= 1.00 )
+
+
+cuartiles <- quantile(estadisticas_Other_max$Other_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_Other_max$Other_Sales)  #promedio
+median(estadisticas_Other_max$Other_Sales) # mediana
+
+var(estadisticas_Other_max$Other_Sales)  # varianza
+sd(estadisticas_Other_max$Other_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_Other_max$Other_Sales) / mean(estadisticas_Other_max$Other_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+### los que no llegan a unidades de millones
+estadisticas_Other_min <- Ventas_Other %>% 
+  select(Other_Sales) %>%
+  filter(Other_Sales <= 0.99, Other_Sales >= 00.1 )
+
+
+cuartiles <- quantile(estadisticas_Other_min$Other_Sales, probs = c(0.25, 0.75))  #cuartiles 1 y 3
+print(cuartiles)
+
+riq_manual <- cuartiles["75%"] - cuartiles["25%"]  #rango intercuartilico
+print(riq_manual)
+
+mean(estadisticas_Other_min$Other_Sales)  #promedio
+median(estadisticas_Other_min$Other_Sales) # mediana
+
+var(estadisticas_Other_min$Other_Sales)  # varianza
+sd(estadisticas_Other_min$Other_Sales)   # desviacion tipica
+
+CV <- sd(estadisticas_Other_min$Other_Sales) / mean(estadisticas_Other_min$Other_Sales) * 100  #coeficiente de variacion
+print(CV)
+
+
+
+### Analisis de las preferencias  de  consolas en las distintas decadas
+
+# siglo 20
+
+consolas_milenio  <- Usa_milenio2 %>%
+  select(Platform)  %>%
+  count(Platform, name = "Lanzamientos")
+
+CM_ordenado  <- consolas_USA_milenio[order(-consolas_USA_milenio$Lanzamientos) , ]
+print(CM_ordenado)
+
+#decada de los 2000
+
+consolas_2000  <- Usa_2000 %>%
+  select(Platform)  %>%
+  count(Platform, name = "Lanzamientos")
+
+C2000_ordenado  <- consolas_USA_2000[order(-consolas_USA_2000$Lanzamientos) , ]
+print(C2000_ordenado)
+
+#decada de los 2010
+
+consolas_2010  <- Usa_2020 %>%
+  select(Platform)  %>%
+  count(Platform, name = "Lanzamientos")
+
+C2010_ordenado  <- consolas_2010[order(-consolas_2010$Lanzamientos) , ]
+print(C2010_ordenado)
+
+
+### graficos finales para el markdown
+
+###USA
+
+grafico_generos_que_mas_generaron_USA <- ggplot(data = Ventas_USA, aes(x = NA_Sales, y = reorder(Genre, NA_Sales ))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  labs(title = "Producción de cada genero en USA",
+       x = "Ganancias",
+       y = "Género") 
+
+print(grafico_generos_que_mas_generaron_USA)
+
+###Europa
+
+grafico_generos_que_mas_generaron_EU <- ggplot(data = Ventas_EU, aes(x = EU_Sales, y = reorder(Genre, EU_Sales ))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  labs(title = "Producción de cada genero en EU",
+       x = "Ganancias",
+       y = "Género") 
+
+print(grafico_generos_que_mas_generaron_EU)
+
+
+### Japon
+
+
+grafico_generos_que_mas_generaron_JP <- ggplot(data = Ventas_JP, aes(x = JP_Sales, y = reorder(Genre, JP_Sales ))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  labs(title = "Producción de cada genero en JP",
+       x = "Ganancias",
+       y = "Género") 
+
+print(grafico_generos_que_mas_generaron_JP)
+
+
+### Other
+
+
+grafico_generos_que_mas_generaron_Other <- ggplot(data = Ventas_Other, aes(x = Other_Sales, y = reorder(Genre, Other_Sales ))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  labs(title = "Producción de cada genero en Other",
+       x = "Ganancias",
+       y = "Género") 
+
+print(grafico_generos_que_mas_generaron_Other)
+
+
+### graficos de las preferencia de consolas en las distintas decadas
+
+### milenio
+
+preferencia_de_las_consolas_milenio <- ggplot(data = CM_ordenado, aes(x = Lanzamientos, y = reorder(Platform, Lanzamientos ))) +
+  geom_bar(stat = "identity",
+           fill = "green",
+           width = 0.7) +
+  labs(title = "Prefencia de las consolas antes del 2000",
+       x = "Cantidad de lanzamientos de esa consola  ",
+       y = "Consolas") 
+
+print(preferencia_de_las_consolas_milenio)
+
+### los dosmiles
+
+
+preferencia_de_las_consolas_2000 <- ggplot(data = C2000_ordenado, aes(x = Lanzamientos, y = reorder(Platform, Lanzamientos ))) +
+  geom_bar(stat = "identity",
+           fill = "green",
+           width = 0.7) +
+  labs(title = "Prefencia de las consolas en el 2000",
+       x = "Cantidad de lanzamientos de esa consola  ",
+       y = "Consolas") 
+
+print(preferencia_de_las_consolas_2000)
+
+
+### decada del 2010
+
+
+
+preferencia_de_las_consolas_2010 <- ggplot(data = C2010_ordenado, aes(x = Lanzamientos, y = reorder(Platform, Lanzamientos ))) +
+  geom_bar(stat = "identity",
+           fill = "green",
+           width = 0.7) +
+  labs(title = "Prefencia de las consolas en los 2010",
+       x = "Cantidad de lanzamientos de esa consola  ",
+       y = "Consolas") 
+
+print(preferencia_de_las_consolas_2010)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

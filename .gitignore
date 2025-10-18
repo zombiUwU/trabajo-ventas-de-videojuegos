@@ -1,2 +1,5 @@
 #Aqui vamos a colocar los archivoc que ignorados en este trabajo 
 .Rproj.user
+.Rhistory
+.RData
+.Ruserdata

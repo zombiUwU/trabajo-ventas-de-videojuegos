@@ -18,11 +18,9 @@ output:
 
 ---
 
-```{r}
+```{r, echo=FALSE, include=FALSE}
 
-library(DT)
 library(dplyr)
-library(magrittr)
 library(knitr)
 library(kableExtra)
 library(ggplot2)
@@ -30,35 +28,27 @@ library(tidyr)
 library(here)   
 library(readr)  
 
-ruta_vdg_ventas <- here("data", "video_games_sales corregido.csv")
-
-BD <- read_csv(ruta_vdg_ventas)
 ```
 
+# **Planteamiento de la investigación**
 
-```{r, echo = FALSE}
-datatable(BD, options = list(
-  pageLength = 5,
-  autoWidth = TRUE,
-  language = list(
-      search = "Buscar por nombre:",
-      lengthMenu = "Mostrar _MENU_ registros por página",
-      info = "Mostrando _START_ a _END_ de _TOTAL_ registros")
-),filter = 'top',
-  class = 'cell-border stripe')
-```
+## **1. Plantemiento del problema**
 
+El mercado global de videojuegos no es homogéneo, sino una amalgama de preferencias regionales que históricamente han influido en el éxito comercial de las franquicias. A pesar de la vasta disponibilidad de datos sobre ventas, existe una necesidad de cuantificar y comparar la influencia relativa de variables clave (como el género y el editor) en las ventas específicas de cada region y su impacto en el mercado global _(Norteamérica (NA), Europa (EU), Japón (JP) y Otras Regiones)_. Sin embargo, con el paso del tiempo no se ha dado una respuesta clara en como las variables (género, region y editor) afectan al mercado.
 
-#
+Por lo tanto, este estudio se justifica en su relevacia practica al definir estrategias claras para la venta y distribucion de videojuegos en sus respectivas regiones, convirtiendose en una herramienta clave para publishers y desarrolladores.
 
-#
+## **2. Objetivos**
 
-#
+### **2.1. Objetivo General**
 
-#
+Determinar y analizar las diferencias significativas en las dinámicas de ventas regionales de videojuegos a lo largo de su historia, cuantificando la influencia relativa de las variables categóricas (Género, Plataforma y Publisher) como predictoras del éxito comercial en Norteamérica, Europa, Japón y Otras Regiones.
 
-#
+### **2.2 Objetivos Especificos**
+1. Calcular la participación porcentual de las ventas totales de videojuegos por región (NA, EU, JP, Otros) para establecer la geografía dominante en el mercado global histórico.
 
-#
+2. Identificar los Publishers con mayor número de lanzamientos y su frecuencia de publicación por género para dimensionar su influencia en la oferta de mercado global.
 
-#
+3. Determinar la frecuencia y la distribución porcentual de los géneros de videojuegos para identificar las tendencias de desarrollo y su impacto en la sobresaturación del mercado.
+
+4. Filtrar los juegos con ventas significativas (mayor o igual a 00.1) para cada región y ademas hacer un analisis separado por año, con el fin de contrastar la evolución del género y la plataforma más exitosos a lo largo del tiempo y la geografía y lograr obtener un mayor entendimiento de los cambios en el mercado a lo largo de los años.

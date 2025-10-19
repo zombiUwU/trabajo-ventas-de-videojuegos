@@ -2880,6 +2880,56 @@ años.</p></li>
 </ol>
 </div>
 </div>
+<div id="marco-metodológico" class="section level2">
+<h2><strong>4. Marco metodológico</strong></h2>
+<div id="enfoque-y-tipo-de-investigación" class="section level3">
+<h3><strong>4.1 Enfoque y tipo de investigación</strong></h3>
+<p>La investigación toma un <strong>enfoque cuantitativo</strong> de
+tipo <strong>Descriptivo-Correlacional</strong> .Buscamos la descripción
+de las variables para un mejor entendimiento para poder complender las
+relaciones entre variables.</p>
+</div>
+<div id="fuentes-de-datos" class="section level3">
+<h3><strong>4.2 Fuentes de datos</strong></h3>
+<p>Utilizamos el conjunto de datos
+<code>video_games_sales_corregido.csv</code>, que presenta registros
+verificados de ventas de videojuegos a nivel regional. Las variables
+clave para este analisis son: <code>Platform</code>,<code>Year</code>,
+<code>Genre</code>, <code>Publisher</code>,
+<code>NA_Sales EU_Sales</code>, <code>JP_Sales Other_Sales</code> y
+<code>Global_Sales</code>.</p>
+</div>
+<div id="periodo-de-referencia" class="section level3">
+<h3><strong>4.3 Periodo de referencia</strong></h3>
+<p>El conjunto de datos tienen ventas de juegos registrados en un lapso
+de tiempo entre el <strong>1975 - 2020</strong>, tenemos presentes que
+los registros más importante estan en el periodo <strong>2000 -
+2014</strong>.</p>
+</div>
+<div id="procesamiento-y-análisis-de-los-datos" class="section level3">
+<h3><strong>4.4 Procesamiento y análisis de los datos</strong></h3>
+<p>El análisis se realiza con <strong>R</strong> y las librerías
+<code>dplyr</code>, <code>ggplot2</code> y <code>tidyr</code> . El
+proceso consta de:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Limpieza de Datos:</strong> Carga del dataset, manejo de
+valores atípicos o no válidos (ej. ventas registradas en unidades de
+millones que presentan ventas en ceros), y corrección de tipos de
+datos.</p></li>
+<li><p><strong>Análisis Descriptivo:</strong> Calculamos medidas de
+tendencia central, la dispersión con desviaciones tipicas, varianzas y
+rango intercuartilico y verificamos su dispersión con coeficiente de
+variación .</p></li>
+<li><p><strong>Visualización:</strong> La creación de de graficas para
+analizar tendencia y relaciones que presenten las variables,utilizamos
+paleta de colores que consiste en los logos de las empresas de
+videojuegos .</p></li>
+<li><p><strong>Tabulación:</strong> Generación de tablas formateadas con
+<code>kable</code> y <code>kableExtra</code> para una presentación clara
+de los resultados.</p></li>
+</ol>
+</div>
+</div>
 </div>
 
 

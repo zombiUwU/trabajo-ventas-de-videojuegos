@@ -52,3 +52,48 @@ Determinar y analizar las diferencias significativas en las dinámicas de ventas
 3. Determinar la frecuencia y la distribución porcentual de los géneros de videojuegos para identificar las tendencias de desarrollo y su impacto en la sobresaturación del mercado.
 
 4. Filtrar los juegos con ventas significativas (mayor o igual a 00.1) para cada región y ademas hacer un analisis separado por año, con el fin de contrastar la evolución del género y la plataforma más exitosos a lo largo del tiempo y la geografía y lograr obtener un mayor entendimiento de los cambios en el mercado a lo largo de los años.
+
+
+
+
+## **4. Marco metodológico** 
+
+
+
+### **4.1 Enfoque y tipo de investigación**
+
+La  investigación toma un **enfoque cuantitativo** de tipo **Descriptivo-Correlacional** .Buscamos la descripción de las variables para un mejor entendimiento para poder complender las relaciones entre variables. 
+
+
+### **4.2 Fuentes de datos**
+
+Utilizamos el conjunto de datos `video_games_sales_corregido.csv`, que presenta registros verificados de ventas de videojuegos a nivel regional. Las variables clave para este analisis son: `Platform`,` Year`, `Genre`,  `Publisher`, `NA_Sales EU_Sales`, `JP_Sales Other_Sales` y `Global_Sales`.  
+
+### **4.3 Periodo de referencia**
+
+El conjunto de datos tienen ventas de juegos registrados en un lapso de tiempo entre el **1975 - 2020**, tenemos presentes que los registros más importante estan en el periodo **2000 - 2014**.
+
+
+### **4.4 Procesamiento y análisis de los datos**
+
+
+El análisis se realiza con **R** y las librerías `dplyr`, `ggplot2` y `tidyr` . El proceso consta de:
+
+1.  **Limpieza de Datos:** Carga del dataset, manejo de valores atípicos o no válidos (ej. ventas registradas en unidades de millones que presentan ventas en ceros), y corrección de tipos de datos.
+
+2.  **Análisis Descriptivo:** Calculamos medidas de tendencia central, la dispersión con desviaciones tipicas, varianzas y rango intercuartilico y verificamos su dispersión con coeficiente de variación .
+
+3.  **Visualización:** La creación de de graficas para analizar tendencia y  relaciones que presenten las variables,utilizamos paleta de colores que consiste en los logos de las empresas de videojuegos .
+
+4.  **Tabulación:** Generación de tablas formateadas con `kable` y `kableExtra` para una presentación clara de los resultados.
+
+
+
+
+
+
+
+
+
+
+

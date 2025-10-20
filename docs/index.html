@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Kleyber Montoya y Sebastian Valbuena" />
+
+<meta name="date" content="2025-09-25" />
+
+<title>Diferencias Significativas en las Ventas Regionales de Videojuegos: Un Análisis de las Variables que Predicen el Éxito Comercial.</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Análisis de Ventas</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Informe Principal</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Diferencias Significativas en las Ventas
+Regionales de Videojuegos: Un Análisis de las Variables que Predicen el
+Éxito Comercial.</h1>
+<h4 class="author">Kleyber Montoya y Sebastian Valbuena</h4>
+<h4 class="date">2025-09-25</h4>
+
+</div>
+
+
+<div id="planteamiento-de-la-investigación" class="section level1">
+<h1><strong>Planteamiento de la investigación</strong></h1>
+<div id="plantemiento-del-problema" class="section level2">
+<h2><strong>1. Plantemiento del problema</strong></h2>
+<p>El mercado global de videojuegos no es homogéneo, sino una amalgama
+de preferencias regionales que históricamente han influido en el éxito
+comercial de las franquicias. A pesar de la vasta disponibilidad de
+datos sobre ventas, existe una necesidad de cuantificar y comparar la
+influencia relativa de variables clave (como el género y el editor) en
+las ventas específicas de cada region y su impacto en el mercado global
+<em>(Norteamérica (NA), Europa (EU), Japón (JP) y Otras Regiones)</em>.
+Sin embargo, con el paso del tiempo no se ha dado una respuesta clara en
+como las variables (género, region y editor) afectan al mercado.</p>
+<p>Por lo tanto, este estudio se justifica en su relevacia practica al
+definir estrategias claras para la venta y distribucion de videojuegos
+en sus respectivas regiones, convirtiendose en una herramienta clave
+para publishers y desarrolladores.</p>
+</div>
+<div id="objetivos" class="section level2">
+<h2><strong>2. Objetivos</strong></h2>
+<div id="objetivo-general" class="section level3">
+<h3><strong>2.1. Objetivo General</strong></h3>
+<p>Determinar y analizar las diferencias significativas en las dinámicas
+de ventas regionales de videojuegos a lo largo de su historia,
+cuantificando la influencia relativa de las variables categóricas
+(Género, Plataforma y Publisher) como predictoras del éxito comercial en
+Norteamérica, Europa, Japón y Otras Regiones.</p>
+</div>
+<div id="objetivos-especificos" class="section level3">
+<h3><strong>2.2 Objetivos Especificos</strong></h3>
+<ol style="list-style-type: decimal">
+<li><p>Calcular la participación porcentual de las ventas totales de
+videojuegos por región (NA, EU, JP, Otros) para establecer la geografía
+dominante en el mercado global histórico.</p></li>
+<li><p>Identificar los Publishers con mayor número de lanzamientos y su
+frecuencia de publicación por género para dimensionar su influencia en
+la oferta de mercado global.</p></li>
+<li><p>Determinar la frecuencia y la distribución porcentual de los
+géneros de videojuegos para identificar las tendencias de desarrollo y
+su impacto en la sobresaturación del mercado.</p></li>
+<li><p>Filtrar los juegos con ventas significativas (mayor o igual a
+00.1) para cada región y ademas hacer un analisis separado por año, con
+el fin de contrastar la evolución del género y la plataforma más
+exitosos a lo largo del tiempo y la geografía y lograr obtener un mayor
+entendimiento de los cambios en el mercado a lo largo de los
+años.</p></li>
+</ol>
+</div>
+</div>
+<div id="marco-metodológico" class="section level2">
+<h2><strong>4. Marco metodológico</strong></h2>
+<div id="enfoque-y-tipo-de-investigación" class="section level3">
+<h3><strong>4.1 Enfoque y tipo de investigación</strong></h3>
+<p>La investigación toma un <strong>enfoque cuantitativo</strong> de
+tipo <strong>Descriptivo-Correlacional</strong> .Buscamos la descripción
+de las variables para un mejor entendimiento para poder complender las
+relaciones entre variables.</p>
+</div>
+<div id="fuentes-de-datos" class="section level3">
+<h3><strong>4.2 Fuentes de datos</strong></h3>
+<p>Utilizamos el conjunto de datos
+<code>video_games_sales_corregido.csv</code>, que presenta registros
+verificados de ventas de videojuegos a nivel regional. Las variables
+clave para este analisis son: <code>Platform</code>,<code>Year</code>,
+<code>Genre</code>, <code>Publisher</code>,
+<code>NA_Sales EU_Sales</code>, <code>JP_Sales Other_Sales</code> y
+<code>Global_Sales</code>.</p>
+</div>
+<div id="periodo-de-referencia" class="section level3">
+<h3><strong>4.3 Periodo de referencia</strong></h3>
+<p>El conjunto de datos tienen ventas de juegos registrados en un lapso
+de tiempo entre el <strong>1975 - 2020</strong>, tenemos presentes que
+los registros más importante estan en el periodo <strong>2000 -
+2014</strong>.</p>
+</div>
+<div id="procesamiento-y-análisis-de-los-datos" class="section level3">
+<h3><strong>4.4 Procesamiento y análisis de los datos</strong></h3>
+<p>El análisis se realiza con <strong>R</strong> y las librerías
+<code>dplyr</code>, <code>ggplot2</code> y <code>tidyr</code> . El
+proceso consta de:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Limpieza de Datos:</strong> Carga del dataset, manejo de
+valores atípicos o no válidos (ej. ventas registradas en unidades de
+millones que presentan ventas en ceros), y corrección de tipos de
+datos.</p></li>
+<li><p><strong>Análisis Descriptivo:</strong> Calculamos medidas de
+tendencia central, la dispersión con desviaciones tipicas, varianzas y
+rango intercuartilico y verificamos su dispersión con coeficiente de
+variación .</p></li>
+<li><p><strong>Visualización:</strong> La creación de de graficas para
+analizar tendencia y relaciones que presenten las variables,utilizamos
+paleta de colores que consiste en los logos de las empresas de
+videojuegos .</p></li>
+<li><p><strong>Tabulación:</strong> Generación de tablas formateadas con
+<code>kable</code> y <code>kableExtra</code> para una presentación clara
+de los resultados.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

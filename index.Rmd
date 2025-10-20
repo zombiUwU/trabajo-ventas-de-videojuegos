@@ -28,6 +28,8 @@ library(tidyr)
 library(here)   
 library(readr)  
 
+datos <- read_csv("video_games_sales corregido.csv")
+
 ```
 
 # **Planteamiento de la investigación**
@@ -57,8 +59,6 @@ Determinar y analizar las diferencias significativas en las dinámicas de ventas
 
 
 ## **4. Marco metodológico** 
-
-
 
 ### **4.1 Enfoque y tipo de investigación**
 

@@ -1,0 +1,10 @@
+name: "analisis-videojuegos"
+output_dir: "docs"
+navbar:
+  title: "Análisis de Ventas"
+  left:
+    - text: "Informe Principal"
+      href: index.html
+output:
+  html_document:
+    theme: journal

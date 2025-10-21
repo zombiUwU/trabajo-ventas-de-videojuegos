@@ -28,9 +28,11 @@ library(tidyr)
 library(here)   
 library(readr)  
 
-datos <- read_csv("video_games_sales corregido.csv")
+Data.informacion <- read_csv("video_games_sales corregido.csv")
 
 ```
+
+---
 
 # **Planteamiento de la investigación**
 
@@ -44,26 +46,48 @@ Por lo tanto, este estudio se justifica en su relevacia practica al definir estr
 
 ### **2.1. Objetivo General**
 
-Determinar y analizar las diferencias significativas en las dinámicas de ventas regionales de videojuegos a lo largo de su historia, cuantificando la influencia relativa de las variables categóricas (Género, Plataforma y Publisher) como predictoras del éxito comercial en Norteamérica, Europa, Japón y Otras Regiones.
+Determinar y analizar las diferencias significativas en las dinámicas de ventas regionales de videojuegos a lo largo de su historia, cuantificando la influencia relativa de las variables categóricas _(Género, Plataforma y Publisher)_ como predictoras del éxito comercial en Norteamérica, Europa, Japón y Otras Regiones.
 
 ### **2.2 Objetivos Especificos**
-1. Calcular la participación porcentual de las ventas totales de videojuegos por región (NA, EU, JP, Otros) para establecer la geografía dominante en el mercado global histórico.
+1. Calcular la participación porcentual de las ventas totales de videojuegos por región _(NA, EU, JP, Otros)_ para establecer la geografía dominante en el mercado global histórico.
 
 2. Identificar los Publishers con mayor número de lanzamientos y su frecuencia de publicación por género para dimensionar su influencia en la oferta de mercado global.
 
 3. Determinar la frecuencia y la distribución porcentual de los géneros de videojuegos para identificar las tendencias de desarrollo y su impacto en la sobresaturación del mercado.
 
-4. Filtrar los juegos con ventas significativas (mayor o igual a 00.1) para cada región y ademas hacer un analisis separado por año, con el fin de contrastar la evolución del género y la plataforma más exitosos a lo largo del tiempo y la geografía y lograr obtener un mayor entendimiento de los cambios en el mercado a lo largo de los años.
+4. Filtrar los juegos con ventas significativas _(mayor o igual a 00.1)_ para cada región y ademas hacer un analisis separado por año, con el fin de contrastar la evolución del género y la plataforma más exitosos a lo largo del tiempo y la geografía y lograr obtener un mayor entendimiento de los cambios en el mercado a lo largo de los años.
 
+---
 
+# **Marco de referencia**
 
+## **3. Marco Teórico**
+
+### **3.1. La Industria Global del Videojuego como Objeto de Estudio**
+
+La industria del videojuego ha evolucionado de un sector tecnológico a una industria cultural y mediática dominante a nivel global, superando consistentemente en ingresos a las industrias del cine y la música combinadas. Este crecimiento exponencial justifica su estudio desde una perspectiva económica y sociológica.
+
+### **3.1.1. Las Ventas Regionales como Indicador de Preferencias Culturales**
+
+El concepto central de este estudio es que el mercado no es monolítico. El éxito de un título está determinado por dinámicas de consumo locales influenciadas por la cultura, la accesibilidad de las plataformas y el contexto socioeconómico.
+
+- **Norteamérica _(NA)_ y Europa _(EU)_:** Tradicionalmente dominados por géneros de alto presupuesto, como la Acción, el Disparo _(Shooters)_ y los Deportes, con una fuerte preferencia por el juego en consolas de sobremesa y, más recientemente, el PC.
+
+- **Japón _(JP)_:** Un mercado históricamente céntrico en consolas portátiles y géneros específicos como los Juegos de Rol _(J-RPG)_ y la simulación. Las preferencias japonesas a menudo demuestran una baja correlación con las tendencias occidentales, lo que valida la necesidad de un análisis regional separado.
+
+- **Otras Regiones _(Other)_:** Si bien es una categoría heterogénea, su análisis suele reflejar una dependencia de los remanentes de ventas y una menor inversión publicitaria directa, pero su creciente contribución a las ventas globales justifica su inclusión como variable.
+
+### **3.2. Variables Clave en el Éxito Comercial**
+
+El éxito en ventas de un videojuego es una función de múltiples variables interrelacionadas, siendo las más críticas el género y el rol del publisher.
+
+### 
 
 ## **4. Marco metodológico** 
 
 ### **4.1 Enfoque y tipo de investigación**
 
 La  investigación toma un **enfoque cuantitativo** de tipo **Descriptivo-Correlacional** .Buscamos la descripción de las variables para un mejor entendimiento para poder complender las relaciones entre variables. 
-
 
 ### **4.2 Fuentes de datos**
 
@@ -73,9 +97,7 @@ Utilizamos el conjunto de datos `video_games_sales_corregido.csv`, que presenta 
 
 El conjunto de datos tienen ventas de juegos registrados en un lapso de tiempo entre el **1975 - 2020**, tenemos presentes que los registros más importante estan en el periodo **2000 - 2014**.
 
-
 ### **4.4 Procesamiento y análisis de los datos**
-
 
 El análisis se realiza con **R** y las librerías `dplyr`, `ggplot2` y `tidyr` . El proceso consta de:
 
@@ -86,14 +108,5 @@ El análisis se realiza con **R** y las librerías `dplyr`, `ggplot2` y `tidyr` 
 3.  **Visualización:** La creación de de graficas para analizar tendencia y  relaciones que presenten las variables,utilizamos paleta de colores que consiste en los logos de las empresas de videojuegos .
 
 4.  **Tabulación:** Generación de tablas formateadas con `kable` y `kableExtra` para una presentación clara de los resultados.
-
-
-
-
-
-
-
-
-
 
 

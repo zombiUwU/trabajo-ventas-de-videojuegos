@@ -15,7 +15,6 @@ output:
     df_print: paged
     code_folding: hide
     css: style.css
-
 ---
 
 ```{r, echo=FALSE, include=FALSE}
@@ -31,13 +30,13 @@ Data.informacion <- read_csv("video_games_sales corregido.csv")
 
 ```
 
----
+------------------------------------------------------------------------
 
 # **Planteamiento de la investigación**
 
 ## **1. Plantemiento del problema**
 
-El mercado global de videojuegos no es homogéneo, sino una amalgama de preferencias regionales que históricamente han influido en el éxito comercial de las franquicias. A pesar de la vasta disponibilidad de datos sobre ventas, existe una necesidad de cuantificar y comparar la influencia relativa de variables clave (como el género y el editor) en las ventas específicas de cada region y su impacto en el mercado global _(Norteamérica (NA), Europa (EU), Japón (JP) y Otras Regiones)_. Sin embargo, con el paso del tiempo no se ha dado una respuesta clara en como las variables (género, region y editor) afectan al mercado.
+El mercado global de videojuegos no es homogéneo, sino una amalgama de preferencias regionales que históricamente han influido en el éxito comercial de las franquicias. A pesar de la vasta disponibilidad de datos sobre ventas, existe una necesidad de cuantificar y comparar la influencia relativa de variables clave (como el género y el editor) en las ventas específicas de cada region y su impacto en el mercado global *(Norteamérica (NA), Europa (EU), Japón (JP) y Otras Regiones)*. Sin embargo, con el paso del tiempo no se ha dado una respuesta clara en como las variables (género, region y editor) afectan al mercado.
 
 Por lo tanto, este estudio se justifica en su relevacia practica al definir estrategias claras para la venta y distribucion de videojuegos en sus respectivas regiones, convirtiendose en una herramienta clave para publishers y desarrolladores.
 
@@ -45,18 +44,19 @@ Por lo tanto, este estudio se justifica en su relevacia practica al definir estr
 
 ### **2.1. Objetivo General**
 
-Determinar y analizar las diferencias significativas en las dinámicas de ventas regionales de videojuegos a lo largo de su historia, cuantificando la influencia relativa de las variables categóricas _(Género, Plataforma y Publisher)_ como predictoras del éxito comercial en Norteamérica, Europa, Japón y Otras Regiones.
+Determinar y analizar las diferencias significativas en las dinámicas de ventas regionales de videojuegos a lo largo de su historia, cuantificando la influencia relativa de las variables categóricas *(Género, Plataforma y Publisher)* como predictoras del éxito comercial en Norteamérica, Europa, Japón y Otras Regiones.
 
 ### **2.2 Objetivos Especificos**
-1. Calcular la participación porcentual de las ventas totales de videojuegos por región _(NA, EU, JP, Otros)_ para establecer la geografía dominante en el mercado global histórico.
 
-2. Identificar los Publishers con mayor número de lanzamientos y su frecuencia de publicación por género para dimensionar su influencia en la oferta de mercado global.
+1.  Calcular la participación porcentual de las ventas totales de videojuegos por región *(NA, EU, JP, Otros)* para establecer la geografía dominante en el mercado global histórico.
 
-3. Determinar la frecuencia y la distribución porcentual de los géneros de videojuegos para identificar las tendencias de desarrollo y su impacto en la sobresaturación del mercado.
+2.  Identificar los Publishers con mayor número de lanzamientos y su frecuencia de publicación por género para dimensionar su influencia en la oferta de mercado global.
 
-4. Filtrar los juegos con ventas significativas _(mayor o igual a 00.1)_ para cada región y ademas hacer un analisis separado por año, con el fin de contrastar la evolución del género y la plataforma más exitosos a lo largo del tiempo y la geografía y lograr obtener un mayor entendimiento de los cambios en el mercado a lo largo de los años.
+3.  Determinar la frecuencia y la distribución porcentual de los géneros de videojuegos para identificar las tendencias de desarrollo y su impacto en la sobresaturación del mercado.
 
----
+4.  Filtrar los juegos con ventas significativas *(mayor o igual a 00.1)* para cada región y ademas hacer un analisis separado por año, con el fin de contrastar la evolución del género y la plataforma más exitosos a lo largo del tiempo y la geografía y lograr obtener un mayor entendimiento de los cambios en el mercado a lo largo de los años.
+
+------------------------------------------------------------------------
 
 # **Marco de referencia**
 
@@ -70,11 +70,11 @@ La industria del videojuego ha evolucionado de un sector tecnológico a una indu
 
 El concepto central de este estudio es que el mercado no es monolítico. El éxito de un título está determinado por dinámicas de consumo locales influenciadas por la cultura, la accesibilidad de las plataformas y el contexto socioeconómico.
 
-- **Norteamérica _(NA)_ y Europa _(EU)_:** Tradicionalmente dominados por géneros de alto presupuesto, como la Acción, el Disparo _(Shooters)_ y los Deportes, con una fuerte preferencia por el juego en consolas de sobremesa y, más recientemente, el PC.
+-   **Norteamérica *(NA)* y Europa *(EU)*:** Tradicionalmente dominados por géneros de alto presupuesto, como la Acción, el Disparo *(Shooters)* y los Deportes, con una fuerte preferencia por el juego en consolas de sobremesa y, más recientemente, el PC.
 
-- **Japón _(JP)_:** Un mercado históricamente céntrico en consolas portátiles y géneros específicos como los Juegos de Rol _(J-RPG)_ y la simulación. Las preferencias japonesas a menudo demuestran una baja correlación con las tendencias occidentales, lo que valida la necesidad de un análisis regional separado.
+-   **Japón *(JP)*:** Un mercado históricamente céntrico en consolas portátiles y géneros específicos como los Juegos de Rol *(J-RPG)* y la simulación. Las preferencias japonesas a menudo demuestran una baja correlación con las tendencias occidentales, lo que valida la necesidad de un análisis regional separado.
 
-- **Otras Regiones _(Other)_:** Si bien es una categoría heterogénea, su análisis suele reflejar una dependencia de los remanentes de ventas y una menor inversión publicitaria directa, pero su creciente contribución a las ventas globales justifica su inclusión como variable.
+-   **Otras Regiones *(Other)*:** Si bien es una categoría heterogénea, su análisis suele reflejar una dependencia de los remanentes de ventas y una menor inversión publicitaria directa, pero su creciente contribución a las ventas globales justifica su inclusión como variable.
 
 ### **3.2. Variables Clave en el Éxito Comercial**
 
@@ -84,37 +84,37 @@ El éxito en ventas de un videojuego es una función de múltiples variables int
 
 El Género no es solo una etiqueta descriptiva, sino un conjunto de convenciones de diseño y expectativas del jugador que segmentan el mercado. uno de los objetivos es identificar y cuantificar la frecuencia de lanzamiento por género, una métrica que refleja la decisión estratégica de los desarrolladores:
 
-- **Sobresaturación de Género:** Un alto número de lanzamientos en un género específico _(como la Acción o Deportes, según el análisis de frecuencias)_ puede indicar una alta demanda, pero también un riesgo de sobresaturación que dificulta el éxito de nuevos títulos.
+-   **Sobresaturación de Género:** Un alto número de lanzamientos en un género específico *(como la Acción o Deportes, según el análisis de frecuencias)* puede indicar una alta demanda, pero también un riesgo de sobresaturación que dificulta el éxito de nuevos títulos.
 
-- **Rendimiento en Ventas:** El análisis se creo para distinguir entre la frecuencia de lanzamientos _(oferta)_ y el volumen de ventas _(demanda)_ por género en cada región facilitando el proceso de hacer una representacion clara del mercado.
+-   **Rendimiento en Ventas:** El análisis se creo para distinguir entre la frecuencia de lanzamientos *(oferta)* y el volumen de ventas *(demanda)* por género en cada región facilitando el proceso de hacer una representacion clara del mercado.
 
 ### **3.2.2. El Rol Estratégico del Publisher**
 
-El Editor _(Publisher)_ es el motor financiero y logístico de la industria, responsable de la financiación, el marketing y la distribución global.
+El Editor *(Publisher)* es el motor financiero y logístico de la industria, responsable de la financiación, el marketing y la distribución global.
 
-- **Influencia del Publisher:** Empresas como Nintendo, Electronic Arts o Activision _(identificadas en el Top 15)_ no solo publican, sino que establecen tendencias, controlan plataformas y dictan el timing del mercado.
+-   **Influencia del Publisher:** Empresas como Nintendo, Electronic Arts o Activision *(identificadas en el Top 15)* no solo publican, sino que establecen tendencias, controlan plataformas y dictan el timing del mercado.
 
-- **Especialización y Dominio:** La pregunta clave es si el dominio de un publisher es geográficamente uniforme o si, por el contrario, especializa sus lanzamientos _(por género o plataforma)_ para maximizar el éxito en ciertas regiones.
+-   **Especialización y Dominio:** La pregunta clave es si el dominio de un publisher es geográficamente uniforme o si, por el contrario, especializa sus lanzamientos *(por género o plataforma)* para maximizar el éxito en ciertas regiones.
 
 ### **3.3. La Dimensión Temporal: Eras de la Consola**
 
-El éxito en ventas está intrínsecamente ligado a la evolución tecnológica y las eras generacionales de consolas. la metodología de filtrar por eras _(pre-2000, 2000-2009, pos-2010)_ es crucial para capturar el cambio en las dinámicas de mercado.
+El éxito en ventas está intrínsecamente ligado a la evolución tecnológica y las eras generacionales de consolas. la metodología de filtrar por eras *(pre-2000, 2000-2009, pos-2010)* es crucial para capturar el cambio en las dinámicas de mercado.
 
 | Era (Generación) | Características de Mercado | Implicaciónes del Análisis |
-| :--- | :--- | :--- |
-| **Pre-2000** _(Generaciones 1-5, hasta PS1/N64)_ | Mercados incipientes, alta fragmentación, ventas dominadas por Nintendo y géneros fundacionales _(Plataforma, RPG, Puzzles, etc.)_. | El análisis refleja la alta concentración de éxito en pocos títulos y plataformas. |
-| **2000 - 2009** _(Generaciones 6-7, PS2/Wii/Xbox 360)_ | Expansión masiva, auge de los juegos casuales _(Wii)_, consolidación del Disparo y Acción _(Grand Theft Auto, Call of Duty, etc.)_. | El análisis capturará la diversificación de géneros y el crecimiento del mercado occidental. |
-| **pos-2010** _(Generaciones 8 en adelante)_ | Dominio del contenido digital y los modelos de servicio en vivo, mayor homogeneización global aunque persisten las diferencias regionales. | El análisis muestra el patrón de ventas en la era moderna y su relación con las ventas globales. |
+|:-----------------------|:-----------------------|:-----------------------|
+| **Pre-2000** *(Generaciones 1-5, hasta PS1/N64)* | Mercados incipientes, alta fragmentación, ventas dominadas por Nintendo y géneros fundacionales *(Plataforma, RPG, Puzzles, etc.)*. | El análisis refleja la alta concentración de éxito en pocos títulos y plataformas. |
+| **2000 - 2009** *(Generaciones 6-7, PS2/Wii/Xbox 360)* | Expansión masiva, auge de los juegos casuales *(Wii)*, consolidación del Disparo y Acción *(Grand Theft Auto, Call of Duty, etc.)*. | El análisis capturará la diversificación de géneros y el crecimiento del mercado occidental. |
+| **pos-2010** *(Generaciones 8 en adelante)* | Dominio del contenido digital y los modelos de servicio en vivo, mayor homogeneización global aunque persisten las diferencias regionales. | El análisis muestra el patrón de ventas en la era moderna y su relación con las ventas globales. |
 
-## **4. Marco metodológico** 
+## **4. Marco metodológico**
 
 ### **4.1 Enfoque y tipo de investigación**
 
-La  investigación toma un **enfoque cuantitativo** de tipo **Descriptivo-Correlacional** .Buscamos la descripción de las variables para un mejor entendimiento para poder complender las relaciones entre variables. 
+La investigación toma un **enfoque cuantitativo** de tipo **Descriptivo-Correlacional** .Buscamos la descripción de las variables para un mejor entendimiento para poder complender las relaciones entre variables.
 
 ### **4.2 Fuentes de datos**
 
-Utilizamos el conjunto de datos `video_games_sales_corregido.csv`, que presenta registros verificados de ventas de videojuegos a nivel regional. Las variables clave para este analisis son: `Platform`,` Year`, `Genre`,  `Publisher`, `NA_Sales EU_Sales`, `JP_Sales Other_Sales` y `Global_Sales`.  
+Utilizamos el conjunto de datos `video_games_sales_corregido.csv`, que presenta registros verificados de ventas de videojuegos a nivel regional. Las variables clave para este analisis son: `Platform`,`Year`, `Genre`, `Publisher`, `NA_Sales EU_Sales`, `JP_Sales Other_Sales` y `Global_Sales`.
 
 ### **4.3 Periodo de referencia**
 
@@ -128,17 +128,17 @@ El análisis se realiza con **R** y las librerías `dplyr`, `ggplot2` y `tidyr` 
 
 2.  **Análisis Descriptivo:** Calculamos medidas de tendencia central, la dispersión con desviaciones tipicas, varianzas y rango intercuartilico y verificamos su dispersión con coeficiente de variación .
 
-3.  **Visualización:** La creación de de graficas para analizar tendencia y  relaciones que presenten las variables,utilizamos paleta de colores que consiste en los logos de las empresas de videojuegos .
+3.  **Visualización:** La creación de de graficas para analizar tendencia y relaciones que presenten las variables,utilizamos paleta de colores que consiste en los logos de las empresas de videojuegos .
 
 4.  **Tabulación:** Generación de tablas formateadas con `kable` y `kableExtra` para una presentación clara de los resultados.
 
----
+------------------------------------------------------------------------
 
-# **5. Resultados y Análisis de Datos**
+# **Resultados y Análisis de Datos**
 
 Esta sección presenta los hallazgos del análisis exploratorio cuantitativo, cumpliendo con los objetivos específicos y respondiendo a la necesidad de cuantificar la influencia de las variables clave (región, género, publisher y tiempo) sobre el éxito comercial.
 
-## **5.1. Distribución del Mercado Global de Videojuegos _(Objetivo Específico 1)_**
+## **5.1. Distribución del Mercado Global de Videojuegos *(Objetivo Específico 1)***
 
 El análisis de las ventas totales históricas (medidas en millones de unidades) revela una marcada asimetría en la distribución de las ganancias, confirmando la no-homogeneidad del mercado.
 
@@ -185,7 +185,7 @@ print(grafico_porcentaje_de_ganancias)
 
 ### **Análisis 5.1:**
 
-El mercado de Norteamérica _(NA)_ se establece históricamente como el principal motor de la industria, concentrando casi la mitad _(44.9%)_ de las ventas totales. La suma de los mercados occidentales _(NA + EU)_ representa el 69.8% del total, lo cual indica que, para el período analizado, el éxito comercial se ha jugado principalmente en estos dos territorios. Japón _(JP)_, aunque es el tercer mercado más grande, tiene una participación significativamente menor _(13.2%)_, lo cual es un hallazgo clave para comprender la necesidad de estrategias localizadas.
+El mercado de Norteamérica *(NA)* se establece históricamente como el principal motor de la industria, concentrando casi la mitad *(44.9%)* de las ventas totales. La suma de los mercados occidentales *(NA + EU)* representa el 69.8% del total, lo cual indica que, para el período analizado, el éxito comercial se ha jugado principalmente en estos dos territorios. Japón *(JP)*, aunque es el tercer mercado más grande, tiene una participación significativamente menor *(13.2%)*, lo cual es un hallazgo clave para comprender la necesidad de estrategias localizadas.
 
 ## **5.2. Frecuencia de Géneros y Actividad de Publishers (Objetivos Específicos 2 y 3)**
 
@@ -193,7 +193,7 @@ Se analiza la oferta del mercado a través de la frecuencia de lanzamientos por 
 
 ### **A. Frecuencia de Lanzamientos por Género**
 
-La siguiente tabla _(derivada de `porcentaje_genero`)_ muestra los géneros más y menos frecuentes en la base de datos _(oferta de mercado)_.
+La siguiente tabla *(derivada de `porcentaje_genero`)* muestra los géneros más y menos frecuentes en la base de datos *(oferta de mercado)*.
 
 ```{r, echo=FALSE}
 ### valores individuales de la data.infomacion ###
@@ -262,5 +262,282 @@ print(grafico_genre_videojuegos)
 
 ### **Análisis 5.2.A:**
 
-Existe una clara sobresaturación en el género de Acción, el cual supera por un amplio margen a cualquier otro con una quinta parte de todos los lanzamientos registrados. Esto valida la hipótesis del Marco Teórico sobre la posible congestión de la oferta en este segmento. Los géneros como Estrategia y rompecabezas representan la menor parte de la oferta _(menos del 4% cada uno)_, indicando un menor riesgo de competencia pero posiblemente una demanda más nicho.
+Existe una clara sobresaturación en el género de Acción, el cual supera por un amplio margen a cualquier otro con una quinta parte de todos los lanzamientos registrados. Esto valida la hipótesis del Marco Teórico sobre la posible congestión de la oferta en este segmento. Los géneros como Estrategia y rompecabezas representan la menor parte de la oferta *(menos del 4% cada uno)*, indicando un menor riesgo de competencia pero posiblemente una demanda más nicho.
 
+### **B. Top 15 de Publishers por Volumen de Lanzamiento**
+
+El análisis de la actividad de publicación *(porcentaje_top15)* revela que el mercado está dominado por unos pocos actores con alta frecuencia de lanzamiento.
+
+```{r, echo=FALSE}
+# cambio de variable a factor y agrupacion por publisher
+
+Data.informacion$Publisher <- as.factor(Data.informacion$Publisher)
+
+Lanzamientos <- summary(Data.informacion$Publisher)
+
+publicaciones_de_las_empresas <- data.frame(Lanzamientos) 
+ 
+publicaciones_de_las_empresas %>% arrange(desc(Lanzamientos))
+
+### creacion de columna publishers ###
+
+Publishers <- c("Electronic Arts",
+                "Activision" ,
+                "Namco Bandai Games",
+                "Ubisoft", 
+                "Konami Digital Entertainment",
+                "THQ", 
+                "Nintendo",
+                "Sony Computer Entertainment", 
+                "Sega",
+                "Take-Two Interactive", 
+                "Capcom",
+                "Atari", 
+                "Tecmo Koei",
+                "Square Enix", 
+                "Warner Bros. Interactive Entertainment",
+                "Disney Interactive Studios", 
+                "Unknown",
+                "Eidos Interactive", 
+                "Midway Games",
+                "505 Games", 
+                "Microsoft Game Studios",
+                "Acclaim Entertainment",
+                "D3Publisher",
+                "Vivendi Games", 
+                "Codemasters",
+                "Idea Factory", 
+                "Deep Silver",
+                "Nippon Ichi Software", 
+                "Zoo Digital Publishing",
+                "Majesco Entertainment", 
+                "LucasArts",
+                "Rising Star Games", 
+                "Hudson Soft",
+                "Banpresto", 
+                "Bethesda Softworks",
+                "Crave Entertainment", 
+                "Atlus",
+                "Infogrames", 
+                "Virgin Interactive",
+                "5pb", 
+                "Ignition Entertainment",
+                "Focus Home Interactive",
+                "Desconocidas",
+                "Marvelous Interactive", 
+                "Empire Interactive",
+                "SquareSoft",
+                "Kadokawa Shoten",
+                "Destineer",
+                "DTP Entertainment",
+                "GT Interactive", 
+                "Alchemist",
+                "MTV Games", 
+                "Global Star",
+                "PQube", 
+                "SouthPeak Games",
+                "Spike", 
+                "Takara Tomy",
+                "3DO", 
+                "TDK Mediactive",
+                "BAM! Entertainment", 
+                "Nordic Games",
+                "Black Bean Games", 
+                "Zoo Games",
+                "Game Factory", 
+                "Mindscape",
+                "Psygnosis", 
+                "Enix Corporation",
+                "Interplay", 
+                "Activision Value",
+                "Kalypso Media", 
+                "FuRyu",
+                "Level 5", 
+                "Prototype",
+                "Arc System Works", 
+                "Avanquest",
+                "Little Orbit", 
+                "Telltale Games",
+                "Midas Interactive Entertainment", 
+                "Aqua Plus",
+                "Jaleco", 
+                "Paradox Interactive",
+                "Universal Interactive", 
+                "Broccoli",
+                "JoWood Productions", 
+                "Oxygen Interactive",
+                "SNK", 
+                "Kemco",
+                "ASCII Entertainment",
+                "Compile Heart",
+                "City Interactive",
+                "Storm City Games",
+                "Success",
+                "Taito",
+                "Titus",
+                "ChunSoft",
+                "SNK Playmore",
+                "Tomy Corporation",
+                "Zushi Games", 
+                "DreamCatcher Interactive",
+                ("Otros"))
+
+publicaciones_de_las_empresas <- publicaciones_de_las_empresas %>%
+  mutate(Empresas = Publishers)
+
+### Porcetaje de juegos publicados por cada empresa ###
+
+total_publishers <- sum(publicaciones_de_las_empresas$Lanzamientos)
+
+porcentaje_publishers  <- publicaciones_de_las_empresas %>% 
+  mutate(porcentajes = Lanzamientos / total_publishers * 100) %>% 
+  select(Empresas, Lanzamientos, porcentajes) %>%
+  arrange(desc(porcentajes))
+
+### Top 15 empresas de videojuegos ###
+
+porcentaje_top15 <- porcentaje_publishers %>%
+  slice_max(order_by = porcentajes, n = 15) %>%
+  arrange(desc(porcentajes))
+
+grafico_publishers_videojuegos <- ggplot(data = porcentaje_top15,
+                                         aes(x = porcentajes,
+                                             y = reorder(Empresas,
+                                                         porcentajes))) +
+  geom_bar(stat = "identity",
+           fill = "#A1D99B",
+           width = 0.7) +
+  geom_text(aes(label = paste0(round(porcentajes, 1), "%")), 
+            hjust = -0.1, size = 3.5, color = "black") +  
+  labs(title = "Top 15 Publishers por Porcentaje de Juegos Publicados",
+       x = "Porcentaje",
+       y = "Empresa") +
+  theme_classic() +
+  theme(axis.text.y = element_text(size = 10),  
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold")) + 
+  scale_x_continuous(limits = c(0, max(porcentaje_top15$porcentajes) * 1.1))  
+
+print(grafico_publishers_videojuegos)
+
+```
+
+### **Análisis 5.2.B:**
+
+El Top 5 de Publishers es responsable de aproximadamente una cuarta parte de todos los lanzamientos de videojuegos, lo que subraya un mercado de desarrollo altamente concentrado. La alta frecuencia de lanzamiento de estas empresas *(Electronic Arts, Activision, etc.)* sugiere que su estrategia se basa en un volumen consistente de títulos para asegurar la presencia en las tiendas y mitigar el riesgo de títulos individuales, independientemente de si esa alta frecuencia se traduce directamente en éxito regional.
+
+## **5.3. Éxito de Géneros por Región (Análisis Correlacional)**
+
+Para establecer si la frecuencia de lanzamiento se traduce en éxito de ventas por región, se compara el volumen de ventas total generado por género en cada región *(basado en los gráficos por región grafico_generos_que_mas_generaron...)*.
+
+```{r, echo=FALSE}
+
+### separamos los lugares de ventas por pais/continentes ###
+
+### Quite la columna rank y ordene las ventas de mayor a menor
+
+Ventas_USA <- Data.informacion %>% arrange(desc(NA_Sales)) %>% select(Name, Platform, Year, Genre, Publisher, NA_Sales)
+
+Ventas_EU <- Data.informacion %>% arrange(desc(EU_Sales)) %>% select(Name, Platform, Year, Genre, Publisher, EU_Sales)
+
+Ventas_JP <- Data.informacion %>% arrange(desc(JP_Sales)) %>% select(Name, Platform, Year, Genre, Publisher, JP_Sales)
+
+Ventas_Other <- Data.informacion %>% arrange(desc(Other_Sales)) %>% select(Name, Platform, Year, Genre, Publisher, Other_Sales )
+
+### USA
+
+grafico_generos_que_mas_generaron_USA <- ggplot(data = Ventas_USA, aes(x = NA_Sales, y = reorder(Genre, NA_Sales ))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  labs(title = "Producción de cada genero en USA",
+       x = "Ganancias",
+       y = "Género") 
+
+print(grafico_generos_que_mas_generaron_USA)
+
+###Europa
+
+grafico_generos_que_mas_generaron_EU <- ggplot(data = Ventas_EU, aes(x = EU_Sales, y = reorder(Genre, EU_Sales ))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  labs(title = "Producción de cada genero en EU",
+       x = "Ganancias",
+       y = "Género") 
+
+print(grafico_generos_que_mas_generaron_EU)
+
+
+### Japon
+
+
+grafico_generos_que_mas_generaron_JP <- ggplot(data = Ventas_JP, aes(x = JP_Sales, y = reorder(Genre, JP_Sales ))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  labs(title = "Producción de cada genero en JP",
+       x = "Ganancias",
+       y = "Género") 
+
+print(grafico_generos_que_mas_generaron_JP)
+
+
+### Other
+
+
+grafico_generos_que_mas_generaron_Other <- ggplot(data = Ventas_Other, aes(x = Other_Sales, y = reorder(Genre, Other_Sales ))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  labs(title = "Producción de cada genero en Other",
+       x = "Ganancias",
+       y = "Género") 
+
+print(grafico_generos_que_mas_generaron_Other)
+
+
+```
+
+### **Análisis 5.3:**
+
+1.  **Dominio Occidental *(NA y EU)*:** Ambos mercados muestran una alta preferencia por géneros tradicionalmente asociados al blockbuster occidental y de alto presupuesto: Deportes, Disparos y Acción. Aunque Plataforma lidera en NA, esto se debe al efecto de pocos títulos de ventas masivas *(como Super Mario Bros.)*, no a una amplia base de títulos del género.
+
+2.  **Excepción Japonesa *(JP)*:** El mercado japonés valida la hipótesis de divergencia cultural. Los Juegos de Rol *(J-RPG)* y Plataforma *(con gran peso de Nintendo)* dominan el ranking de ganancias, mientras que los géneros de alto impacto occidental como Disparos y Deportes caen a posiciones inferiores en comparación con NA y EU. Esto demuestra que una alta frecuencia de publicación global en Acción no garantiza el éxito en el mercado japonés.
+
+---
+
+# **Conclusiones**
+
+El análisis de las ventas históricas de videojuegos por región, género, publisher y era temporal ha permitido cuantificar las dinámicas de mercado, confirmando la naturaleza heterogénea de la industria y proporcionando fundamentos para estrategias de venta localizadas.
+
+## **6.1. Sobre la Dominancia Regional y la Concentración de Mercado**
+
+1. **Hegemonía Occidental en Ventas:** El mercado de Norteamérica _(NA)_ y Europa _(EU)_ es, históricamente, el principal motor de ingresos. Con NA acaparando casi el 45% de las ventas totales y los mercados occidentales combinados superando el 70%, el éxito global de un título depende críticamente de su rendimiento en estas dos regiones.
+
+2. **Concentración de la Oferta:** Existe una clara sobresaturación en el género de Acción _(más del 20% de los lanzamientos)_ y una alta concentración de la actividad editorial en un puñado de Publishers. Esta dinámica sugiere una estrategia de volumen y bajo riesgo de los grandes actores, enfocada en géneros con demanda masiva.
+
+## **6.2. Sobre la Influencia del Género y la Diversidad Regional**
+
+3. **Divergencia Cultural y el Éxito de Género:** Se confirma que el éxito de ventas está profundamente ligado a las preferencias culturales:
+
+- Mientras que los mercados occidentales _(NA y EU)_ están dominados en ingresos por géneros de alto presupuesto como Deportes, Disparos y Acción.
+
+- El mercado japonés _(JP)_ demuestra una clara predilección por el Juego de Rol _(J-RPG)_, el cual encabeza su ranking de ganancias. Esto prueba que la alta frecuencia global en el género Acción no se traduce en dominio en el mercado japonés, validando la necesidad de segmentación geográfica.
+
+4. **Desconexión entre Oferta y Éxito Total:** El género Acción es el más frecuente en lanzamiento, pero no siempre el que genera las mayores ventas absolutas en todas las regiones _(como se ve en NA y JP)_, indicando que si bien hay muchos títulos de Acción, solo unos pocos blockbusters determinan el éxito, mientras que otros géneros tienen una relación más eficiente entre lanzamiento y venta total.
+
+## **6.3. Sobre la Evolución Temporal y la Estrategia de Plataforma**
+
+5. **Evolución del Hardware como Predictor de Género:**La plataforma dominante en cada era histórica predice los géneros que prosperarán.
+
+- Las eras Pre-2000 y la década de los 2000 _(DS)_ estuvieron marcadas por el éxito de las consolas de Nintendo, lo que impulsó géneros familiares, de Plataforma y Puzzles.
+
+- La era de 2010 consolida el dominio de PlayStation y Xbox, que son las plataformas naturales para la producción de grandes títulos de Acción y Disparos, cerrando el ciclo entre el género, la tecnología y el mercado occidental.
+
+## **6.4. Recomendaciones Finales para Publishers**
+
+Los publishers deben abandonar la estrategia de distribución uniforme:
+
+- **Para NA y EU:** La inversión debe seguir orientándose a la producción de alta calidad en Acción, Deportes y Disparos, priorizando el lanzamiento en consolas de sobremesa (PS/Xbox).
+
+- **Para JP:** Las estrategias deben ser altamente localizadas, enfocando los recursos en los géneros de Juegos de Rol y colaborando con desarrolladores con historial de éxito en plataformas portátiles o nicho de J-RPG.

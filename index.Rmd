@@ -25,7 +25,6 @@ library(knitr)
 library(kableExtra)
 library(ggplot2)
 library(tidyr)
-library(here)   
 library(readr)  
 
 Data.informacion <- read_csv("video_games_sales corregido.csv")
@@ -81,7 +80,31 @@ El concepto central de este estudio es que el mercado no es monolítico. El éxi
 
 El éxito en ventas de un videojuego es una función de múltiples variables interrelacionadas, siendo las más críticas el género y el rol del publisher.
 
-### 
+### **3.2.1. El Género como Segmentador de Mercado**
+
+El Género no es solo una etiqueta descriptiva, sino un conjunto de convenciones de diseño y expectativas del jugador que segmentan el mercado. uno de los objetivos es identificar y cuantificar la frecuencia de lanzamiento por género, una métrica que refleja la decisión estratégica de los desarrolladores:
+
+- **Sobresaturación de Género:** Un alto número de lanzamientos en un género específico _(como la Acción o Deportes, según el análisis de frecuencias)_ puede indicar una alta demanda, pero también un riesgo de sobresaturación que dificulta el éxito de nuevos títulos.
+
+- **Rendimiento en Ventas:** El análisis se creo para distinguir entre la frecuencia de lanzamientos _(oferta)_ y el volumen de ventas _(demanda)_ por género en cada región facilitando el proceso de hacer una representacion clara del mercado.
+
+### **3.2.2. El Rol Estratégico del Publisher**
+
+El Editor _(Publisher)_ es el motor financiero y logístico de la industria, responsable de la financiación, el marketing y la distribución global.
+
+- **Influencia del Publisher:** Empresas como Nintendo, Electronic Arts o Activision _(identificadas en el Top 15)_ no solo publican, sino que establecen tendencias, controlan plataformas y dictan el timing del mercado.
+
+- **Especialización y Dominio:** La pregunta clave es si el dominio de un publisher es geográficamente uniforme o si, por el contrario, especializa sus lanzamientos _(por género o plataforma)_ para maximizar el éxito en ciertas regiones.
+
+### **3.3. La Dimensión Temporal: Eras de la Consola**
+
+El éxito en ventas está intrínsecamente ligado a la evolución tecnológica y las eras generacionales de consolas. la metodología de filtrar por eras _(pre-2000, 2000-2009, pos-2010)_ es crucial para capturar el cambio en las dinámicas de mercado.
+
+| Era (Generación) | Características de Mercado | Implicaciónes del Análisis |
+| :--- | :--- | :--- |
+| **Pre-2000** _(Generaciones 1-5, hasta PS1/N64)_ | Mercados incipientes, alta fragmentación, ventas dominadas por Nintendo y géneros fundacionales _(Plataforma, RPG, Puzzles, etc.)_. | El análisis refleja la alta concentración de éxito en pocos títulos y plataformas. |
+| **2000 - 2009** _(Generaciones 6-7, PS2/Wii/Xbox 360)_ | Expansión masiva, auge de los juegos casuales _(Wii)_, consolidación del Disparo y Acción _(Grand Theft Auto, Call of Duty, etc.)_. | El análisis capturará la diversificación de géneros y el crecimiento del mercado occidental. |
+| **pos-2010** _(Generaciones 8 en adelante)_ | Dominio del contenido digital y los modelos de servicio en vivo, mayor homogeneización global aunque persisten las diferencias regionales. | El análisis muestra el patrón de ventas en la era moderna y su relación con las ventas globales. |
 
 ## **4. Marco metodológico** 
 
@@ -109,4 +132,135 @@ El análisis se realiza con **R** y las librerías `dplyr`, `ggplot2` y `tidyr` 
 
 4.  **Tabulación:** Generación de tablas formateadas con `kable` y `kableExtra` para una presentación clara de los resultados.
 
+---
+
+# **5. Resultados y Análisis de Datos**
+
+Esta sección presenta los hallazgos del análisis exploratorio cuantitativo, cumpliendo con los objetivos específicos y respondiendo a la necesidad de cuantificar la influencia de las variables clave (región, género, publisher y tiempo) sobre el éxito comercial.
+
+## **5.1. Distribución del Mercado Global de Videojuegos _(Objetivo Específico 1)_**
+
+El análisis de las ventas totales históricas (medidas en millones de unidades) revela una marcada asimetría en la distribución de las ganancias, confirmando la no-homogeneidad del mercado.
+
+```{r, echo=FALSE}
+ganancias_totales <- c(2434.13,
+                   1291.02,
+                   4392.95,
+                   797.75) 
+
+lugares <- c("EU",
+             "JP", 
+             "NA",
+             "Other") 
+
+Ganancias <- data.frame(ganancias_totales, lugares) 
+
+porcentaje_de_ganancias <-  Ganancias %>% 
+  mutate(porcentaje = ganancias_totales / sum(ganancias_totales) * 100)
+
+porcentaje_de_ganancias %>% 
+  kable("html", 
+        col.names = c("Ganancias Totales", "Región", "Porcentaje (%)"), 
+        digits = 2, 
+        caption = "Ganancias Regionales de Videojuegos") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                full_width = FALSE) %>% 
+  row_spec(0, bold = TRUE, color = "white", background = "#4A90E2") %>%  
+  row_spec(seq(1, nrow(porcentaje_de_ganancias), 2), background = "#F0F0F0")
+
+
+grafico_porcentaje_de_ganancias <- ggplot(data = porcentaje_de_ganancias,
+       aes(x = "", y = porcentaje, fill = lugares)) +
+  geom_bar(stat  = "identity") + 
+  geom_text(aes(label = paste0(round(porcentaje,),"%")),
+            position = position_stack(vjust = 0.5)) +
+  coord_polar(theta = "y") +
+  theme_void() + 
+  labs(title = "distribucion", subtitle = "de las ventas en las regiones") +
+  theme(plot.title = element_text(size = 25, family = "serif")) +
+  theme(plot.subtitle = element_text(size = 15, family = "serif"))
+
+print(grafico_porcentaje_de_ganancias)
+```
+
+### **Análisis 5.1:**
+
+El mercado de Norteamérica _(NA)_ se establece históricamente como el principal motor de la industria, concentrando casi la mitad _(44.9%)_ de las ventas totales. La suma de los mercados occidentales _(NA + EU)_ representa el 69.8% del total, lo cual indica que, para el período analizado, el éxito comercial se ha jugado principalmente en estos dos territorios. Japón _(JP)_, aunque es el tercer mercado más grande, tiene una participación significativamente menor _(13.2%)_, lo cual es un hallazgo clave para comprender la necesidad de estrategias localizadas.
+
+## **5.2. Frecuencia de Géneros y Actividad de Publishers (Objetivos Específicos 2 y 3)**
+
+Se analiza la oferta del mercado a través de la frecuencia de lanzamientos por género y la actividad de los publishers.
+
+### **A. Frecuencia de Lanzamientos por Género**
+
+La siguiente tabla _(derivada de `porcentaje_genero`)_ muestra los géneros más y menos frecuentes en la base de datos _(oferta de mercado)_.
+
+```{r, echo=FALSE}
+### valores individuales de la data.infomacion ###
+
+# cambio de variable de caracter a factor
+Data.informacion$Genre <- as.factor(Data.informacion$Genre)
+
+# agrupacion por genero
+
+frecuencias_genre <- summary(Data.informacion$Genre)
+
+frame_genre <-  data.frame(frecuencias_genre)
+
+generos <- c("Acción",
+             "Aventura",
+             "Carreras",
+             "Deportes",
+             "Disparos",
+             "Estrategia",
+             "Juegos de rol",
+             "Pelea",
+             "Plataforma",
+             "rompecabezas",
+             "Simulacion",
+             "Varios")
+
+frame_genre <- frame_genre %>%
+  mutate(genre = generos)
+
+### porcentaje de la frecuencia de los generos de videojuegos ###
+
+total_genre <- sum(frame_genre$frecuencias_genre)
+
+porcentaje_genero  <- frame_genre  %>% 
+  mutate(porcentajes = frecuencias_genre / total_genre * 100) %>% 
+  select(genre, frecuencias_genre, porcentajes) %>%
+  arrange(desc(porcentajes))
+
+porcentaje_genero %>% 
+  kable("html", 
+        col.names = c("Género", "Frecuencia", "Porcentaje (%)"), 
+        digits = 2, 
+        caption = "Frecuencia y Porcentaje de Géneros de Videojuegos") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                full_width = FALSE) %>% 
+  row_spec(0, bold = TRUE, color = "white", background = "#4A90E2") %>% 
+  row_spec(seq(1, nrow(porcentaje_genero), 2), background = "#F0F0F0")  
+
+# grafico
+
+grafico_genre_videojuegos <- ggplot(data = porcentaje_genero, aes(x = porcentajes, y = reorder(genre, porcentajes))) +
+  geom_bar(stat = "identity",
+           fill = "steelblue",
+           width = 0.7) +
+  geom_text(aes(label = paste0(round(porcentajes, 1), "%")), 
+            hjust = -0.1, size = 3.5, color = "black") +  
+  labs(title = "Porcentaje de Frecuencia por Género de Videojuegos",
+       x = "Porcentaje",
+       y = "Género") +
+  theme_minimal() +
+  theme(axis.text.y = element_text(size = 10),  
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold")) + 
+  scale_x_continuous(limits = c(0, max(porcentaje_genero$porcentajes) * 1.1))
+print(grafico_genre_videojuegos)
+```
+
+### **Análisis 5.2.A:**
+
+Existe una clara sobresaturación en el género de Acción, el cual supera por un amplio margen a cualquier otro con una quinta parte de todos los lanzamientos registrados. Esto valida la hipótesis del Marco Teórico sobre la posible congestión de la oferta en este segmento. Los géneros como Estrategia y rompecabezas representan la menor parte de la oferta _(menos del 4% cada uno)_, indicando un menor riesgo de competencia pero posiblemente una demanda más nicho.
 

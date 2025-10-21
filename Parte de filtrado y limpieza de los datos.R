@@ -335,7 +335,6 @@ ggplot(data = porcentaje_de_ganancias,
   theme(plot.title = element_text(size = 25, family = "serif")) +
   theme(plot.subtitle = element_text(size = 15, family = "serif"))
 
-
 ### filtrado final de la data ###
 
 ## analisis por region de estadisticas_descriptivas #
@@ -754,14 +753,6 @@ preferencia_de_las_consolas_2010 <- ggplot(data = C2010_ordenado, aes(x = Lanzam
        y = "Consolas") 
 
 print(preferencia_de_las_consolas_2010)
-
-
-
-
-
-
-
-
 
 
 

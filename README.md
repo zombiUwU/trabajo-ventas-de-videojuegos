@@ -8,6 +8,23 @@ El mercado global de videojuegos no es homogéneo, sino una amalgama de preferen
 
 Por lo tanto, este estudio se justifica en su relevacia practica al definir estrategias claras para la venta y distribucion de videojuegos en sus respectivas regiones, convirtiendose en una herramienta clave para publishers y desarrolladores.
 
+## **2. Objetivos**
+
+### **2.1. Objetivo General**
+
+Determinar y analizar las diferencias significativas en las dinámicas de ventas regionales de videojuegos a lo largo de su historia, cuantificando la influencia relativa de las variables categóricas *(Género, Plataforma y Publisher)* como predictoras del éxito comercial en Norteamérica, Europa, Japón y Otras Regiones.
+
+### **2.2 Objetivos Especificos**
+
+1.  Calcular la participación porcentual de las ventas totales de videojuegos por región *(NA, EU, JP, Otros)* para establecer la geografía dominante en el mercado global histórico.
+
+2.  Identificar los Publishers con mayor número de lanzamientos y su frecuencia de publicación por género para dimensionar su influencia en la oferta de mercado global.
+
+3.  Determinar la frecuencia y la distribución porcentual de los géneros de videojuegos para identificar las tendencias de desarrollo y su impacto en la sobresaturación del mercado.
+
+4.  Filtrar los juegos con ventas significativas *(mayor o igual a 00.1)* para cada región y ademas hacer un analisis separado por año, con el fin de contrastar la evolución del género y la plataforma más exitosos a lo largo del tiempo y la geografía y lograr obtener un mayor entendimiento de los cambios en el mercado a lo largo de los años.
+
+
 ###### Informe Dinamico con Rmarkdown: https://trabajo-ventas-de-videojuegos.onrender.com
 
 ###### Pagina Web con Streamlit : https://trabajo-ventas-de-videojuegos-qi4a.onrender.com

@@ -9,3 +9,5 @@ El mercado global de videojuegos no es homogéneo, sino una amalgama de preferen
 Por lo tanto, este estudio se justifica en su relevacia practica al definir estrategias claras para la venta y distribucion de videojuegos en sus respectivas regiones, convirtiendose en una herramienta clave para publishers y desarrolladores.
 
 ###### Informe Dinamico con Rmarkdown: https://trabajo-ventas-de-videojuegos.onrender.com
+
+###### Pagina Web con Streamlit : https://trabajo-ventas-de-videojuegos-qi4a.onrender.com

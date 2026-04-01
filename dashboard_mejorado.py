@@ -1,5 +1,5 @@
 # para instalar paquetes
-# pip install pandas numpy streamlit matplotlib plotly seaborn
+# pip install pandas numpy streamlit matplotlib plotly seaborn os plotly.express
 
 ### Importamos la paquetería ###
 import pandas as pd
